@@ -1,0 +1,29 @@
+{
+  "id": "/elk/kibana-plugin/heartbeat",
+  "cmd": "rm heartbeat.tar.gz && cd heartbeat-* && ./heartbeat -e -c heartbeat.yml",
+  "cpus": 0.3,
+  "mem": 500,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "dependencies": [
+    "/elk/elasticsearch",
+    "/elk/kibana"
+  ],
+  "fetch": [
+    {
+      "uri": "http://192.168.2.104:6688/heartbeat.tar.gz",
+      "extract": true,
+      "executable": false,
+      "cache": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10003,
+      "protocol": "tcp"
+    }
+  ]
+}

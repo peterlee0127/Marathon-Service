@@ -1,0 +1,25 @@
+{
+  "id": "/jenkins",
+  "cmd": "java -jar jenkins.war --httpPort=8888",
+  "cpus": 1,
+  "mem": 500,
+  "disk": 0,
+  "instances": 0,
+  "acceptedResourceRoles": [],
+  "fetch": [
+    {
+      "uri": "http://192.168.2.104:6688/jenkins.war",
+      "extract": false,
+      "executable": false,
+      "cache": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10004,
+      "name": "default",
+      "protocol": "tcp"
+    }
+  ],
+  "user": "peterlee"
+}

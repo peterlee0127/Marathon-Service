@@ -1,0 +1,29 @@
+{
+  "id": "/elk/kibana-plugin/metricbeat",
+  "cmd": "rm metricbeat.tar.gz && cd metricbeat-* && ./metricbeat -e -c metricbeat.yml",
+  "cpus": 0.3,
+  "mem": 500,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "dependencies": [
+    "/elk/elasticsearch",
+    "/elk/kibana"
+  ],
+  "fetch": [
+    {
+      "uri": "http://192.168.2.104:6688/metricbeat.tar.gz",
+      "extract": true,
+      "executable": false,
+      "cache": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10003,
+      "protocol": "tcp"
+    }
+  ]
+}

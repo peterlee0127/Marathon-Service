@@ -1,0 +1,27 @@
+{
+  "id": "/hdfs/datanode",
+  "cmd": "tar xvf hadoop.tar.gz && rm hadoop.tar.gz && cd hadoop && ./bin/hdfs datanode",
+  "cpus": 1,
+  "mem": 500,
+  "disk": 0,
+  "instances": 0,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "fetch": [
+    {
+      "uri": "http://192.168.2.104:6688/hadoop.tar.gz",
+      "extract": true,
+      "executable": false,
+      "cache": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10000,
+      "name": "default",
+      "protocol": "tcp"
+    }
+  ],
+  "user": "peterlee"
+}

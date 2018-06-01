@@ -1,0 +1,34 @@
+{
+  "id": "/elk/logstash",
+  "cmd": "mv logstash.conf logstash-* && rm logstash.tar.gz && cd logstash-* && ./bin/logstash -f  logstash.conf",
+  "cpus": 0.3,
+  "mem": 500,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "dependencies": [
+    "/elk/elasticsearch"
+  ],
+  "fetch": [
+    {
+      "uri": "http://192.168.2.104:6688/logstash.tar.gz",
+      "extract": true,
+      "executable": false,
+      "cache": false
+    },
+    {
+      "uri": "http://192.168.2.104:6688/logstash.conf",
+      "extract": true,
+      "executable": false,
+      "cache": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10003,
+      "protocol": "tcp"
+    }
+  ]
+}

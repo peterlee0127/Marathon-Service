@@ -1,0 +1,33 @@
+{
+  "id": "/elk/elasticsearch",
+  "cmd": "mv elasticsearch.yml elastic*/config && rm elasticsearch.tar.gz && cd ela* && ./bin/elasticsearch",
+  "cpus": 1,
+  "mem": 1500,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "fetch": [
+    {
+      "uri": "http://192.168.2.104:6688/elasticsearch.yml",
+      "extract": true,
+      "executable": false,
+      "cache": false
+    },
+    {
+      "uri": "http://192.168.2.104:6688/elasticsearch.tar.gz",
+      "extract": true,
+      "executable": false,
+      "cache": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10001,
+      "name": "default",
+      "protocol": "tcp"
+    }
+  ],
+  "user": "peterlee"
+}

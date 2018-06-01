@@ -1,0 +1,30 @@
+{
+  "id": "/elk/kibana",
+  "cmd": "rm kibana.tar.gz && cd ki* && ./bin/kibana -H 192.168.2.104",
+  "cpus": 0.5,
+  "mem": 1200,
+  "disk": 0,
+  "instances": 1,
+  "acceptedResourceRoles": [
+    "*"
+  ],
+  "dependencies": [
+    "/elk/elasticsearch"
+  ],
+  "fetch": [
+    {
+      "uri": "http://192.168.2.104:6688/kibana.tar.gz",
+      "extract": true,
+      "executable": false,
+      "cache": false
+    }
+  ],
+  "portDefinitions": [
+    {
+      "port": 10002,
+      "name": "default",
+      "protocol": "tcp"
+    }
+  ],
+  "user": "peterlee"
+}
